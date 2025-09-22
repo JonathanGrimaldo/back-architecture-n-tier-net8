@@ -1,0 +1,6 @@
+@net8.ntier.API_HostAddress = http://localhost:5048
+
+GET {{net8.ntier.API_HostAddress}}/users/
+Accept: application/json
+
+###
