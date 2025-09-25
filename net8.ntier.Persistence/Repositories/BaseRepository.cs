@@ -40,12 +40,12 @@ namespace net8.ntier.Persistence.Repositories
             _dbSet.Remove(entity);
         }
 
-        public virtual async Task AddRangeAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default)
+        public async Task AddRangeAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default)
         {
             await _dbSet.AddRangeAsync(entities, cancellationToken);
         }
 
-        public virtual void DeleteRange(IEnumerable<TEntity> entities)
+        public void DeleteRange(IEnumerable<TEntity> entities)
         {
             _dbSet.RemoveRange(entities);
         }

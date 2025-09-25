@@ -1,9 +1,12 @@
+using net8.ntier.Business.Services.Base;
 using net8.ntier.Business.Services.Users;
 using net8.ntier.Domain.Contracts;
 using net8.ntier.Domain.Repositories;
+using net8.ntier.Domain.Services;
 using net8.ntier.Persistence;
 using net8.ntier.Persistence.Repositories;
 using net8.ntier.Persistence.UoW;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,15 +19,19 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddPersistenceServices(builder.Configuration); //verificar si dejamos el dependency injection de persistence
 
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
 // Add Business Services
 builder.Services.AddScoped<IUserService, UserService>();
 
 // Generic repository and unit of work registrations
 builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
 
-////Repository registrations
+//Repository registrations
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+
 
 var app = builder.Build();
 
