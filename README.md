@@ -1,9 +1,34 @@
-NTier architecture (currently project in progress, not done)
+I stared this project just for learning and educational purposes...
+is not done, is currently in progress I fix some details yet
+--
+I stared with 3 layers following the N-Tier architecture
 
-This project was created with 3 main layers just for educational purposes, or if you want to use, ahead (just for the moment not is done)
+But after of some changes I added 1 additional layer = Domain, trying to follow the Onion Architecture principles but keeping the N-Tier layers
 
-This is a representation of how is the flow:
+The project init with 3 main layer
 
-<img width="471" height="729" alt="image" src="https://github.com/user-attachments/assets/46bded38-658a-4265-9614-cd480f3d6a6b" />
+Presentation (WebAPI)
+Business(Application)
+Persistence (Data Access)
 
-Img reference: https://iam.slys.dev/p/layered-architecture
+and
+
+Presentation has a reference of Business
+Business has a reference of Persistence
+
+And the Presentation layer orchest the 2 layers adding the services of the dependency container, and it works at the beginning
+
+But now the architecture was updated, for the next
+
+Presentation (WebAPI)
+Business (Application)
+Persistence (Data Access)
+Domain (Core logic)
+
+Presentation has reference of Business and Persistence (N-Tier classic is Presentation -> Business, but in this case we dont follow this flow)
+Business has a reference to Domain(Core)
+Persistence has a reference to Domain(Core)
+
+--
+This project has been configured repository pattern, with generic and non generic repository, configurable repository as you needed
+We use the unit of work for keep all repositories in one place
