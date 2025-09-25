@@ -15,9 +15,9 @@ namespace net8.ntier.API.Controllers
 
         //TODO: Add Dto's / requests / responses
         [HttpGet]
-        public async Task<IActionResult> GetAllAsync(CancellationToken cancellationToken)
+        public async Task<IActionResult> GetByName([FromQuery] string name)
         {
-            var users = await _userService.GetAllAsync(cancellationToken);
+            var users = await _userService.GetByName(name);
             return Ok(users);
         }
 

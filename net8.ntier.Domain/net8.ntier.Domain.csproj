@@ -6,8 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\net8.ntier.Business\net8.ntier.Business.csproj" />
-  </ItemGroup>
-
 </Project>

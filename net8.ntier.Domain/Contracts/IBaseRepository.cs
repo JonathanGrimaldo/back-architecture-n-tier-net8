@@ -1,13 +1,13 @@
-﻿namespace net8.ntier.Persistence.Repositories.IRepositories
+﻿namespace net8.ntier.Domain.Contracts
 {
     public interface IBaseRepository<TEntity> where TEntity : class
     {
-        Task<IEnumerable<TEntity>> GetAllAsync(CancellationToken cancellationToken = default);
+        IQueryable<TEntity> GetQueryable(); //made that is create an anti-pattern todo: add params
         Task<TEntity?> GetByIdAsync(int id, CancellationToken cancellationToken = default);
         Task AddAsync(TEntity entity, CancellationToken cancellationToken = default);
-        void UpdateAsync(TEntity entity);
-        void DeleteAsync(TEntity entity);
+        void Update(TEntity entity);
+        void Delete(TEntity entity);
         Task AddRangeAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default);
-        void DeleteRangeAsync(IEnumerable<TEntity> entities);
+        void DeleteRange(IEnumerable<TEntity> entities);
     }
 }

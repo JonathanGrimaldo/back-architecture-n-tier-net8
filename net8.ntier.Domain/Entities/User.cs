@@ -1,6 +1,6 @@
-﻿using net8.ntier.Persistence.Abstractions;
+﻿using net8.ntier.Domain.Contracts;
 
-namespace net8.ntier.Persistence.Entities
+namespace net8.ntier.Domain.Entities
 {
     public class User : CreatedAuditedEntity, IBaseEntity, ISoftDelete
     { 

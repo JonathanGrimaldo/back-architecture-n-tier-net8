@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\net8.ntier.Persistence\net8.ntier.Persistence.csproj" />
+    <ProjectReference Include="..\net8.ntier.Domain\net8.ntier.Domain.csproj" />
   </ItemGroup>
 
 </Project>

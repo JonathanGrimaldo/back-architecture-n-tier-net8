@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using net8.ntier.Persistence.Entities;
+using net8.ntier.Domain.Entities;
 
 namespace net8.ntier.Persistence.Configurations
 {

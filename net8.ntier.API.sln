@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36408.4 d17.14
+VisualStudioVersion = 17.14.36408.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "net8.ntier.API", "net8.ntier.API\net8.ntier.API.csproj", "{C1DB638D-7783-4AE9-90AA-7637C7DC2BD9}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "net8.ntier.Persistence", "net8.ntier.Persistence\net8.ntier.Persistence.csproj", "{9F55F0F8-6DA2-4C66-88ED-386AC5B720F4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "net8.ntier.Test", "net8.ntier.Test\net8.ntier.Test.csproj", "{464141B7-9990-4280-9DDA-44EF18D7B325}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "net8.ntier.Domain", "net8.ntier.Domain\net8.ntier.Domain.csproj", "{90C993DD-86CF-4482-BE91-3D7CA17473EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{464141B7-9990-4280-9DDA-44EF18D7B325}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{464141B7-9990-4280-9DDA-44EF18D7B325}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{464141B7-9990-4280-9DDA-44EF18D7B325}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90C993DD-86CF-4482-BE91-3D7CA17473EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90C993DD-86CF-4482-BE91-3D7CA17473EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90C993DD-86CF-4482-BE91-3D7CA17473EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90C993DD-86CF-4482-BE91-3D7CA17473EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

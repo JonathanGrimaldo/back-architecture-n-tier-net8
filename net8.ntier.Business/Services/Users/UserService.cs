@@ -1,5 +1,5 @@
-﻿using net8.ntier.Persistence.Entities;
-using net8.ntier.Persistence.UoW;
+﻿using net8.ntier.Domain.Contracts;
+using net8.ntier.Domain.Entities;
 
 namespace net8.ntier.Business.Services.Users
 {
@@ -13,9 +13,9 @@ namespace net8.ntier.Business.Services.Users
         }
 
 
-        public async Task<IEnumerable<User>> GetAllAsync(CancellationToken cancellationToken = default)
+        public async Task<User?> GetByName(string name)
         {
-            return await _unitOfWork.Users.GetAllAsync(cancellationToken);
+            return _unitOfWork.Users.GetQueryable().Where(x => x.Name == name).FirstOrDefault();
         }
 
         public async Task<User?> GetByIdAsync(int id, CancellationToken cancellationToken = default)

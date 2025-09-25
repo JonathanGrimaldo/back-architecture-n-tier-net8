@@ -1,50 +1,53 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using net8.ntier.Domain.Contracts;
 using net8.ntier.Persistence.Context;
-using net8.ntier.Persistence.Repositories.IRepositories;
 
 namespace net8.ntier.Persistence.Repositories
 {
-    public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class, new()
+    public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class
     {
         private readonly IAppDbContext _context;
+        private readonly DbSet<TEntity> _dbSet;
         public BaseRepository(IAppDbContext context)
         {
             _context = context;
+            var dbContext = (DbContext)_context;
+            _dbSet = dbContext.Set<TEntity>();
         }
 
-        public virtual async Task<IEnumerable<TEntity>> GetAllAsync(CancellationToken cancellationToken = default)
+        public virtual IQueryable<TEntity> GetQueryable()
         {
-            return await _context.Set<TEntity>().AsNoTracking().ToListAsync(cancellationToken);
+            return _dbSet;
         }
 
         public virtual async Task<TEntity?> GetByIdAsync(int id, CancellationToken cancellationToken = default)
         {
-            return await _context.Set<TEntity>().FindAsync(id, cancellationToken);
+            return await _dbSet.FindAsync(new object[] { id }, cancellationToken);
         }
 
         public virtual async Task AddAsync(TEntity entity, CancellationToken cancellationToken = default)
         {
-            await _context.Set<TEntity>().AddAsync(entity, cancellationToken);
+            await _dbSet.AddAsync(entity, cancellationToken);
         }
 
-        public virtual void UpdateAsync(TEntity entity)
+        public virtual void Update(TEntity entity)
         {
-            _context.Set<TEntity>().Update(entity);
+            _dbSet.Update(entity);
         }
 
-        public virtual void DeleteAsync(TEntity entity)
+        public virtual void Delete(TEntity entity)
         {
-            _context.Set<TEntity>().Remove(entity);
+            _dbSet.Remove(entity);
         }
 
         public virtual async Task AddRangeAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default)
         {
-            await _context.Set<TEntity>().AddRangeAsync(entities, cancellationToken);
+            await _dbSet.AddRangeAsync(entities, cancellationToken);
         }
 
-        public virtual void DeleteRangeAsync(IEnumerable<TEntity> entities)
+        public virtual void DeleteRange(IEnumerable<TEntity> entities)
         {
-            _context.Set<TEntity>().RemoveRange(entities);
+            _dbSet.RemoveRange(entities);
         }
     }
 }

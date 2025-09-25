@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\net8.ntier.Business\net8.ntier.Business.csproj" />
+    <ProjectReference Include="..\net8.ntier.Persistence\net8.ntier.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

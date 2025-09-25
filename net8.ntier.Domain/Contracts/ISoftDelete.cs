@@ -1,4 +1,4 @@
-﻿namespace net8.ntier.Persistence.Abstractions
+﻿namespace net8.ntier.Domain.Contracts
 {
     public interface ISoftDelete
     {
